@@ -4,13 +4,39 @@
     font-family: 'Poppins', sans-serif;
     box-sizing: border-box;
 }
-body{
-    background: #222;
+body {
+    background: linear-gradient(45deg, blue, red,purple, green);
+    background-size: 300% 300%;
+    animation: color 5s ease-in-out infinite;
+    background-repeat: no-repeat; /* makes background image not repat, default*/
+    background-position: center; /*center image*/
+    height: 100vh;
+}
+.title{
+    color: #fff;
+    margin-left: 30px;
+    margin-top: 20px;
+}
+
+@keyframes color {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
 }
 .card{
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(135deg, #00feba,#5b548a);
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-right: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
     color: #fff;
     margin: 100px auto 0;
     border-radius: 20px;
@@ -26,8 +52,9 @@ body{
 .search input{
     border: 0;
     outline: 0;
-    background: #ebfffc;
-    color: #555;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    color: #ffffff;
     padding: 10px 25px;
     height: 60px;
     border-radius: 30px;
@@ -35,10 +62,28 @@ body{
     margin-right: 16px;
     font-size: 18px;
 }
+/* Placeholder styling */
+::placeholder {
+    color: #bdbdbdce; /* Change this to your desired color */
+}
+
+/* For vendor prefixes to ensure cross-browser compatibility */
+::-webkit-input-placeholder {
+    color: #bdbdbdce;
+}
+
+:-ms-input-placeholder {
+    color: #bdbdbdce;
+}
+
+::-ms-input-placeholder {
+    color: #bdbdbdce;
+}
 .search button{
     border: 0;
     outline: 0;
-    background: #ebfffc;
+    background-color: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 50%;
     width: 60px;
     height: 60px;
@@ -46,11 +91,98 @@ body{
 }
 .search button img{
     width: 16px;
-
 }
+
+
+.switch-container {
+    display: flex;
+    justify-content: right;
+    margin-top: 15px;
+}
+.switch{
+    position: relative;
+    display: inline-block;
+    width: 55px;
+    height: 30px;
+}
+.slider{
+    position: absolute;
+    cursor: pointer;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+   background-color: rgba(0, 0, 0, 0.1);
+    transition: .4s;
+    border-radius: 34px;
+}
+.switch input{
+    display: none;
+}
+.slider::before{
+    position: absolute;
+    content: "";
+    height: 25px;
+    width: 25px;
+    left: 3px;
+    bottom: 2.5px;
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border-radius: 50px;
+}
+.label {
+    position: absolute;
+    width: 55%;
+    text-align: center;
+    line-height: 30px;
+    font-family: sans-serif;
+    font-size: 13px;
+    color: white;
+    user-select: none;
+    z-index: 100;
+  }
+
+input:checked + .slider{
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background-color: #bdbdbdce;
+}
+input:checked + .slider:before{
+   transform: translateX(22px);
+}
+  
+.slider .label:nth-child(1) {
+   left: 0;
+}
+  
+.slider .label:nth-child(2) {
+  right: 0;
+}
+  /* Change label colors based on checkbox state */
+input:checked + .slider .label:nth-child(1) {
+    color: #bdbdbdce; /* Same as the slider background when checked */
+}
+  
+input:checked + .slider .label:nth-child(2) {
+    color: black;
+}
+  
+input:not(:checked) + .slider .label:nth-child(1) {
+    color: black;
+}
+  
+input:not(:checked) + .slider .label:nth-child(2) {
+   color: #bdbdbdce; /* Same as the slider background when not checked */
+}
+
+
+
+
+
+
 .weather-icon{
     width: 170px;
     margin-top: 30px;
+   
 }
 .weather h1{
     font-size: 80px;
@@ -81,4 +213,14 @@ body{
 .wind{
    font-size: 28px;
    margin-top: -6px;
+}
+.weather{
+    display: none;
+}
+.error{
+    text-align: left;
+    margin-left: 10px;
+    font-size: 14px;
+    margin-top: 10px;
+    display: none;
 }
