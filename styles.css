@@ -72,7 +72,7 @@ body {
 }
 /* Placeholder styling */
 ::placeholder {
-    color: #bdbdbdce; /* Change this to your desired color */
+    color: #bdbdbdce; 
 }
 
 /* For vendor prefixes to ensure cross-browser compatibility */
@@ -165,7 +165,7 @@ input:checked + .slider:before{
 .slider .label:nth-child(2) {
   right: 0;
 }
-  /* Change label colors based on checkbox state */
+
 input:checked + .slider .label:nth-child(1) {
     color: #bdbdbdce; /* Same as the slider background when checked */
 }
@@ -181,11 +181,6 @@ input:not(:checked) + .slider .label:nth-child(1) {
 input:not(:checked) + .slider .label:nth-child(2) {
    color: #bdbdbdce; /* Same as the slider background when not checked */
 }
-
-
-
-
-
 
 .weather-icon{
     width: 170px;
